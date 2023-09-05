@@ -21,10 +21,12 @@ servers:
         enum:
          - v1
          - v2
+        default: v1
       protocol:
         enum:
          - http
          - https
+        default: http
 
 
 components:
@@ -51,6 +53,57 @@ paths:
            schema:
             type: string
             example: "mystring"
+       400:
+        description: bad request
+       500:
+        description: internal server error
+  
+  /lcoobject:
+    get:
+     tags: 
+      - Object
+     summary: returns unique course from LCO
+     responses: 
+       200:
+        description: All good and success
+        content:
+         application/json:
+           schema:
+            type: object
+            properties:
+              id:
+               type: string
+              name:
+               type: string
+              price:
+               type: number
+       400:
+        description: bad request
+       500:
+        description: internal server error
+
+
+  /courses:
+    get:
+     tags: 
+      - Array
+     summary: returns All course from LCO
+     responses: 
+       200:
+        description: All good and success
+        content:
+         application/json:
+           schema:
+            type: array
+            item:
+              type: object
+              properties:
+               id:
+                 type: string
+               name:
+                 type: string
+               price:
+                 type: number
        400:
         description: bad request
        500:
