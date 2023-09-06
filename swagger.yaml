@@ -109,3 +109,70 @@ paths:
        500:
         description: internal server error
 
+
+  /mycourse/{courseId}:
+    get:
+     tags: 
+      - String
+     summary: returns course as per request
+     parameters: 
+      - name: courseId
+        in: path
+        required: true
+        default: 22
+        schema:
+          type: string
+     responses: 
+       200:
+        description: All good and success
+        content:
+         application/json:
+           schema:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              price:
+                type: number
+       400:
+        description: bad request
+       500:
+        description: internal server error
+
+  /addCourse:
+    post:
+     tags: 
+      - object
+     summary: add new course in database
+     consumes:
+       - application/json
+     produces:
+       - application/json
+     requestBody:
+       required: true
+       content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              price:
+                type: number
+     responses: 
+       200:
+        description: All good and success
+        content:
+         application/json:
+           schema:
+            type: boolean
+            
+       400:
+        description: bad request
+       500:
+        description: internal server error
+
