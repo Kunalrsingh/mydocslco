@@ -176,3 +176,40 @@ paths:
        500:
         description: internal server error
 
+
+  /coursequery:
+    get:
+     tags: 
+      - string
+     summary: trying to learn url query
+     parameters:
+       - name: location
+         in : query
+         required: true
+         schema: 
+           type: string
+           enum: [delhi, mumbai, azamgarh]
+       - name: device
+         in : query
+         required: true
+         schema: 
+           type: string
+           enum: [web, mobile]
+     responses: 
+       200:
+        description: All good and success
+        content:
+         application/json:
+           schema:
+            type: object
+            properties:
+             location:
+              type: string
+             device:
+              type: string
+            
+       400:
+        description: bad request
+       500:
+        description: internal server error
+
