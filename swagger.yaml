@@ -213,3 +213,27 @@ paths:
        500:
         description: internal server error
 
+  /courseupload:
+    post:
+     tags: 
+      - string
+     summary: uploading file/image
+     requestBody:
+       content:
+        multipart/form data
+         schema:
+          type: object
+          properties:
+           file:
+            type: string
+            format: boolean
+     responses: 
+       200:
+        description: All good and success
+        
+            
+       400:
+        description: bad request
+       500:
+        description: internal server error
+
