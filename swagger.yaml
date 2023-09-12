@@ -217,21 +217,22 @@ paths:
     post:
      tags: 
       - string
-     summary: uploading file/image
+     summary: uploading file image
+     parameters:
+      - in: header
+        name: auth
      requestBody:
        content:
-        multipart/form data
+        multipart/form-data:
          schema:
           type: object
           properties:
            file:
             type: string
-            format: boolean
+            format: binary
      responses: 
        200:
         description: All good and success
-        
-            
        400:
         description: bad request
        500:
